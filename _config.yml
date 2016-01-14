@@ -14,5 +14,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://katfukui.com" # the base hostname & protocol for your site
 repo: "https://github.com/katmeister/clean-posts-jekyll"
 
+permalink:   /demo/:title/
+
 # Build settings
 markdown: kramdown
