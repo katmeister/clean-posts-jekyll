@@ -2,19 +2,19 @@
 layout: default
 ---
 
-<div class="wrapper">
+<!-- <ul class="post-list">
+  {% for post in site.posts %}
+    <li>
+      <h1>
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h1>
+      <p class="post-snippet">
+        {{ post.snippet }}
+      </p>
+    </li>
+  {% endfor %}
+</ul> -->
 
-    <ul class="post-list">
-      {% for post in site.posts %}
-        <li>
-          <h1>
-            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          </h1>
-          <p class="post-snippet">
-            {{ post.snippet }}
-          </p>
-        </li>
-      {% endfor %}
-    </ul>
-
-</div>
+{% assign post = site.posts.first %}
+{% assign content = post.content %}
+{% include post.html %}
