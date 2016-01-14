@@ -10,7 +10,7 @@ title: clean-posts-jekyll
 email: katherinefukui@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Shiny clean posts.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/clean-posts-jekyll" # the subpath of your site, e.g. /blog
 url: "http://katfukui.com" # the base hostname & protocol for your site
 repo: "https://github.com/katmeister/clean-posts-jekyll"
 
