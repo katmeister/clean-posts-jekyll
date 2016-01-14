@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Demo: This is clean AF</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://katfukui.com/2016/01/12/welcome-to-jekyll.html">
+  <link rel="alternate" type="application/rss+xml" title="clean-posts-jekyll" href="http://katfukui.com/feed.xml">
+
+  <link href='https://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" href="/">clean-posts-jekyll</a>
+    <a class="site-repo" href="https://github.com/katmeister/clean-posts-jekyll" target="_blank">code</a>
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <div class="wrapper">
+      <h1 class="post-title" itemprop="name headline">Demo: This is clean AF</h1>
+    </div>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    
+<div class="color-wrapper white">
+
+  <div class="wrapper">
+
+    <p>Want full-bleed backgrounds and images that templates can’t fulfill? But hate mixing Markdown/Liquid with HTML? Here’s a simple method!</p>
+
+    <h2 id="create-stylesmd">Create styles.md</h2>
+    <p>In order to remove clunky HTML from your Markdown file, we need to put them in a separate file that we can include using Liquid.</p>
+
+    <p>Create a <strong>styles.md</strong> file in your includes folder (or whatever you want to name it). This is where you’ll put your HTML blocks. Create a corresponding <strong>_styles.scss</strong>.</p>
+
+    <h2 id="use-capture">Use capture</h2>
+    <p>Liquid has a nifty feature called <strong>capture</strong> that, as the name suggests, captures a string into a variable. Here, I’m capturing my div tags into ‘writing’ and ‘end_block.’</p>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">{% capture writing %}
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrapper"</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+{% endcapture %}
+
+{% capture end_block %}
+<span class="nt">&lt;/div&gt;</span>
+{% endcapture %}</code></pre></figure>
+
+    <p>Be sure to include <strong>markdown=”1”</strong> in your tags. This retains Markdown rendering within the HTML blocks, and you’ll see the correct syntax highlighting in your text editor.</p>
+
+    <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.wrapper</span> <span class="p">{</span>
+  <span class="nl">max-width</span><span class="p">:</span> <span class="m">800px</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span> <span class="m">30px</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+    <p>Style your HTML accordingly in your SCSS or CSS file and capture as many HTML blocks as you want in styles.md. Don’t forget to capture closing tags!</p>
+
+    <h2 id="include-in-your-posts">Include in your posts</h2>
+    <p>At the beginning of your .markdown posts, include styles.md:</p>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">{% include styles.md %}</code></pre></figure>
+
+    <p>Now, you’re ready to use the HTML blocks throughout your post! Use Liquid output to start and end the block, like this:</p>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">{{ writing }}
+Yay content!
+{{ end-block }}</code></pre></figure>
+
+  </div>
+
+</div>
+
+<div class="color-wrapper beige">
+
+  <div class="wrapper">
+
+    <h1 id="full-bleed-backgrounds">Full-bleed backgrounds</h1>
+    <p>You can easily insert full-bleed color backgrounds into your posts. Define .color-wrapper and .beige classes in your CSS:</p>
+
+    <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.color-wrapper</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">60px</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.beige</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="m">#f1e5c2</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">{% capture wrapper_beige %}
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"color-wrapper beige"</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+{% endcapture %}</code></pre></figure>
+
+    <figure class="highlight"><pre><code class="language-html" data-lang="html">{{ wrapper_beige }}
+{{ writing }}
+Your writing is now in full-bleed bg! Nice and clean!
+{{ end_block }}
+{{ end_block }}</code></pre></figure>
+
+  </div>
+
+</div>
+
+<div class="full-bleed-image">
+
+  <p><img src="http://placehold.it/1600x800" alt="img" /></p>
+
+</div>
+
+<div class="color-wrapper orange">
+
+  <div class="wrapper">
+
+    <h1 id="image-assets">Image assets</h1>
+    <p>Mix it up with full-bleed images and fitted images.</p>
+
+  </div>
+
+  <div class="midsize-image">
+
+    <p><img src="http://placehold.it/1600x800" alt="img" /></p>
+
+  </div>
+
+  <div class="wrapper">
+
+    <p>Fitted images are great for vertical designs so it’s easier to see all the details with minimal scrolling.</p>
+
+  </div>
+
+</div>
+
+
+  </div>
+
+</article>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <a href="http://katfukui.com">🏡</a>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

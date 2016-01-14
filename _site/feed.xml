@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>clean-posts-jekyll</title>
+    <description>Shiny clean posts.
+</description>
+    <link>http://katfukui.com/</link>
+    <atom:link href="http://katfukui.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 13 Jan 2016 20:11:57 -0800</pubDate>
+    <lastBuildDate>Wed, 13 Jan 2016 20:11:57 -0800</lastBuildDate>
+    <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Demo: This is clean AF</title>
+        <description>
+&lt;div class=&quot;color-wrapper white&quot;&gt;
+
+  &lt;div class=&quot;wrapper&quot;&gt;
+
+    &lt;p&gt;Want full-bleed backgrounds and images that templates can’t fulfill? But hate mixing Markdown/Liquid with HTML? Here’s a simple method!&lt;/p&gt;
+
+    &lt;h2 id=&quot;create-stylesmd&quot;&gt;Create styles.md&lt;/h2&gt;
+    &lt;p&gt;In order to remove clunky HTML from your Markdown file, we need to put them in a separate file that we can include using Liquid.&lt;/p&gt;
+
+    &lt;p&gt;Create a &lt;strong&gt;styles.md&lt;/strong&gt; file in your includes folder (or whatever you want to name it). This is where you’ll put your HTML blocks. Create a corresponding &lt;strong&gt;_styles.scss&lt;/strong&gt;.&lt;/p&gt;
+
+    &lt;h2 id=&quot;use-capture&quot;&gt;Use capture&lt;/h2&gt;
+    &lt;p&gt;Liquid has a nifty feature called &lt;strong&gt;capture&lt;/strong&gt; that, as the name suggests, captures a string into a variable. Here, I’m capturing my div tags into ‘writing’ and ‘end_block.’&lt;/p&gt;
+
+    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;{% capture writing %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrapper&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;markdown=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+{% endcapture %}
+
+{% capture end_block %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+{% endcapture %}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+    &lt;p&gt;Be sure to include &lt;strong&gt;markdown=”1”&lt;/strong&gt; in your tags. This retains Markdown rendering within the HTML blocks, and you’ll see the correct syntax highlighting in your text editor.&lt;/p&gt;
+
+    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nc&quot;&gt;.wrapper&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;max-width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;800px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+    &lt;p&gt;Style your HTML accordingly in your SCSS or CSS file and capture as many HTML blocks as you want in styles.md. Don’t forget to capture closing tags!&lt;/p&gt;
+
+    &lt;h2 id=&quot;include-in-your-posts&quot;&gt;Include in your posts&lt;/h2&gt;
+    &lt;p&gt;At the beginning of your .markdown posts, include styles.md:&lt;/p&gt;
+
+    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;{% include styles.md %}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+    &lt;p&gt;Now, you’re ready to use the HTML blocks throughout your post! Use Liquid output to start and end the block, like this:&lt;/p&gt;
+
+    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;{{ writing }}
+Yay content!
+{{ end-block }}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class=&quot;color-wrapper beige&quot;&gt;
+
+  &lt;div class=&quot;wrapper&quot;&gt;
+
+    &lt;h1 id=&quot;full-bleed-backgrounds&quot;&gt;Full-bleed backgrounds&lt;/h1&gt;
+    &lt;p&gt;You can easily insert full-bleed color backgrounds into your posts. Define .color-wrapper and .beige classes in your CSS:&lt;/p&gt;
+
+    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nc&quot;&gt;.color-wrapper&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;60px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.beige&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#f1e5c2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;{% capture wrapper_beige %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color-wrapper beige&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;markdown=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+{% endcapture %}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+    &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;{{ wrapper_beige }}
+{{ writing }}
+Your writing is now in full-bleed bg! Nice and clean!
+{{ end_block }}
+{{ end_block }}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class=&quot;full-bleed-image&quot;&gt;
+
+  &lt;p&gt;&lt;img src=&quot;http://placehold.it/1600x800&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div class=&quot;color-wrapper orange&quot;&gt;
+
+  &lt;div class=&quot;wrapper&quot;&gt;
+
+    &lt;h1 id=&quot;image-assets&quot;&gt;Image assets&lt;/h1&gt;
+    &lt;p&gt;Mix it up with full-bleed images and fitted images.&lt;/p&gt;
+
+  &lt;/div&gt;
+
+  &lt;div class=&quot;midsize-image&quot;&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://placehold.it/1600x800&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+  &lt;/div&gt;
+
+  &lt;div class=&quot;wrapper&quot;&gt;
+
+    &lt;p&gt;Fitted images are great for vertical designs so it’s easier to see all the details with minimal scrolling.&lt;/p&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+</description>
+        <pubDate>Tue, 12 Jan 2016 22:08:33 -0800</pubDate>
+        <link>http://katfukui.com/2016/01/12/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://katfukui.com/2016/01/12/welcome-to-jekyll.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
