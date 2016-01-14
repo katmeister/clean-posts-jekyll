@@ -37,6 +37,10 @@ background colors and padding */
 .orange {
   background: $brand-color;
   color: $white;
+
+  a, a:visited {
+    color: $white;
+  }
 }
 
 .full-bleed-image {

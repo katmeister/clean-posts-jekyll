@@ -83,6 +83,8 @@ You can easily insert full-bleed color backgrounds into your posts. Define .colo
 {% endraw %}
 {% endhighlight %}
 
+Capture the HTML in styles.md:
+
 {% highlight html %}
 {% raw %}
 {% capture wrapper_beige %}
@@ -90,6 +92,8 @@ You can easily insert full-bleed color backgrounds into your posts. Define .colo
 {% endcapture %}
 {% endraw %}
 {% endhighlight %}
+
+And use it in your post!
 
 {% highlight html %}
 {% raw %}
@@ -108,7 +112,7 @@ Your writing is now in full-bleed bg! Nice and clean!
 ![img](http://placehold.it/1600x800)
 {{ end_block }}
 
-{{ wrapper_orange }}
+{{ wrapper_white }}
 {{ writing }}
 # Image assets
 Mix it up with full-bleed images and fitted images.
@@ -120,5 +124,13 @@ Mix it up with full-bleed images and fitted images.
 
 {{ writing }}
 Fitted images are great for vertical designs so it's easier to see all the details with minimal scrolling.
+
+And of course, you can still mix HTML into your posts if you need to.
 {{ end_block }}
 {{ end_block }}
+
+<div class="color-wrapper orange center" markdown="1">
+{{ writing }}
+# [Check it out on GitHub!](https://github.com/katmeister/clean-posts-jekyll)
+{{ end_block }}
+</div>
