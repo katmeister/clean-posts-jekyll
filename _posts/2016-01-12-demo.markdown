@@ -131,6 +131,6 @@ And of course, you can still mix HTML into your posts if you need to.
 
 <div class="color-wrapper orange center" markdown="1">
 {{ writing }}
-# [Check it out on GitHub!](https://github.com/katmeister/clean-posts-jekyll)
+# [Download on GitHub!](https://github.com/katmeister/clean-posts-jekyll)
 {{ end_block }}
 </div>
