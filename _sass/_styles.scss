@@ -1,0 +1,65 @@
+/**
+ * Wrapper
+ */
+.wrapper {
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+    margin: 0 auto;
+    padding: 0 $spacing-unit;
+    @extend %clearfix;
+
+    @include media-query($on-laptop) {
+        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+        padding: 0 $spacing-unit / 2;
+    }
+}
+
+/* For full-bleed sections with
+background colors and padding */
+.color-wrapper {
+	width: 100%;
+  padding: $spacing-unit*2 0;
+
+	@include media-query($on-palm) {
+		padding: $spacing-unit/2 0;
+	}
+}
+
+.white {
+  background: $white;
+}
+
+.beige {
+  background: $beige;
+}
+
+.orange {
+  background: $brand-color;
+  color: $white;
+
+  a, a:visited {
+    color: $white;
+  }
+}
+
+.full-bleed-image {
+  img {
+    width: 100%;
+  }
+}
+
+.midsize-image {
+  max-width: 1200px;
+  background: inherit;
+  margin: $spacing-unit auto;
+  text-align: center;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 700px) {
+    margin: $spacing-unit/2 auto;
+  }
+}

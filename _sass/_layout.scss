@@ -1,0 +1,196 @@
+/**
+ * Site header
+ */
+.site-header {
+    min-height: 70px;
+
+    // Positioning context for the mobile navigation icon
+    position: relative;
+}
+
+.site-title, .site-repo {
+  line-height: 70px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+}
+
+.site-title {
+    float: left;
+
+    &,
+    &:visited {
+        color: $grey-color-dark;
+    }
+}
+
+.site-repo {
+  float: right;
+}
+
+.site-nav {
+    float: right;
+    line-height: 56px;
+
+    .menu-icon {
+        display: none;
+    }
+
+    .page-link {
+        color: $text-color;
+        line-height: $base-line-height;
+
+        // Gaps between nav items, but not on the last one
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+
+    @include media-query($on-palm) {
+        position: absolute;
+        top: 9px;
+        right: $spacing-unit / 2;
+        background-color: $background-color;
+        border: 1px solid $grey-color-light;
+        border-radius: 5px;
+        text-align: right;
+
+        .menu-icon {
+            display: block;
+            float: right;
+            width: 36px;
+            height: 26px;
+            line-height: 0;
+            padding-top: 10px;
+            text-align: center;
+
+            > svg {
+                width: 18px;
+                height: 15px;
+
+                path {
+                    fill: $grey-color-dark;
+                }
+            }
+        }
+
+        .trigger {
+            clear: both;
+            display: none;
+        }
+
+        &:hover .trigger {
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .page-link {
+            display: block;
+            padding: 5px 10px;
+
+            &:not(:last-child) {
+                margin-right: 0;
+            }
+            margin-left: 20px;
+        }
+    }
+}
+
+
+
+/**
+ * Site footer
+ */
+.site-footer {
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+}
+
+.footer-heading {
+    font-size: 18px;
+    margin-bottom: $spacing-unit / 2;
+}
+
+
+/**
+ * Page content
+ */
+.page-content {
+    padding: $spacing-unit 0 0 0;
+}
+
+.page-heading {
+    font-size: 20px;
+}
+
+.post-list {
+    margin-left: 0;
+    list-style: none;
+
+    > li {
+        margin-bottom: $spacing-unit;
+    }
+
+}
+
+
+
+/**
+ * Posts
+ */
+.post-header {
+    padding-top: $spacing-unit;
+}
+
+.post-title {
+    font-size: 42px;
+
+    @include media-query($on-laptop) {
+        font-size: 36px;
+    }
+}
+
+.post-snippet {
+  font-size: $small-font-size;
+  color: $grey-color-dark;
+  line-height: 1.3;
+}
+
+.post-content {
+    h1 {
+        font-size: 38px;
+
+        @include media-query($on-laptop) {
+            font-size: 32px;
+        }
+    }
+
+    h2 {
+        font-size: 32px;
+        padding-top: $spacing-unit;
+
+        @include media-query($on-laptop) {
+            font-size: 28px;
+        }
+    }
+
+    h3 {
+        font-size: 26px;
+
+        @include media-query($on-laptop) {
+            font-size: 22px;
+        }
+    }
+
+    h4 {
+        font-size: 20px;
+
+        @include media-query($on-laptop) {
+            font-size: 18px;
+        }
+    }
+}
+
+.center {
+  text-align: center;
+}
